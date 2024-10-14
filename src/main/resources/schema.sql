@@ -1,0 +1,7 @@
+CREATE TABLE produtos (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    descricao VARCHAR(255),
+    valor DECIMAL(10, 2) NOT NULL,
+    disponivel VARCHAR(10) NOT NULL
+);

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Produtos</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Lista de Produtos</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>Nome</th>
+        <th>Valor</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="produto : ${produtos}">
+        <td>
+            <a th:text="${produto.nome}" th:href="@{produto/{id}(id=${produto.id})}" style="text-decoration: none;"></a>
+        </td>
+        <td th:text="'R$'+${produto.valor}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<a th:href="@{/api/v1/cadastrar}">
+    <button style="padding: 5px 10px; margin-top: 10px; cursor: pointer;">
+        <span th:text="Cadastrar"></span>
+    </button>
+</a>
+
+</body>
+</html>
